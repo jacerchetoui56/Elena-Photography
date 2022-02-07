@@ -1,0 +1,523 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Ruhl";
+  src: url("./fonts/FrankRuhlLibre-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Ruhl Medium";
+  src: url("./fonts/FrankRuhlLibre-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Vibes";
+  src: url("./fonts/GreatVibes-Regular.ttf");
+}
+
+html {
+  font-size: 62.5%;
+  --header1: calc(2rem + 1vw);
+  --header2: calc(3.5rem + 1vw);
+  --header3: calc(3rem + 1vw);
+  --header4: calc(2.4rem + 1vw);
+  --text: calc(1.5rem + 1vw);
+  --big: calc(6rem + 1vw);
+  --special-color: #906272;
+  --background-color: #414141;
+  --gray-text: #525252;
+  scroll-behavior: smooth;
+}
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+body {
+  font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out;
+}
+
+h1 {
+  font-size: var(--header1);
+}
+li,
+button,
+label,
+input,
+a,
+p {
+  font-size: var(--text);
+}
+
+h2 {
+  font-size: var(--header2);
+}
+
+h3 {
+  font-size: var(--header3);
+}
+
+h4,
+h5 {
+  font-size: var(--header4);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* -------------------------header------------------------------ */
+
+.header {
+  box-shadow: 0px 2px 29px -15px black;
+}
+nav {
+  min-height: 10vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+header .logo {
+  flex: 1 40rem;
+  font-family: "Vibes", sans-serif;
+  color: black;
+}
+
+.links {
+  flex: 1 40rem;
+  display: flex;
+  justify-content: space-around;
+}
+header .links a {
+  color: black;
+}
+
+.openlinks {
+  z-index: 3;
+  position: relative;
+  width: 5rem;
+  height: 3rem;
+  display: none;
+}
+.openlinks:hover {
+  cursor: pointer;
+}
+.openlinks .line1 {
+  position: absolute;
+  top: 3px;
+  background-color: var(--background-color);
+  width: 100%;
+  height: 15%;
+  transition: ease all 1s;
+}
+.openlinks .line2 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--background-color);
+  width: 100%;
+
+  height: 15%;
+  transition: ease all 1s;
+}
+.openlinks .line3 {
+  position: absolute;
+  bottom: 3px;
+  background-color: var(--background-color);
+  width: 100%;
+  height: 15%;
+  transition: ease all 1s;
+}
+
+.reshape .line1 {
+  background-color: white;
+  transform: rotateZ(45deg) translateY(300%);
+  transition: ease all 01s;
+}
+.reshape .line2 {
+  opacity: 0;
+  transition: ease all 01s;
+}
+.reshape .line3 {
+  background-color: white;
+  transform: rotateZ(-45deg) translateY(-300%);
+  transition: ease all 01s;
+}
+/* ---------------------------------------------------------- */
+/* -----------------------------home-------------------------------------------- */
+.home {
+  min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 0 0 auto;
+  overflow: hidden;
+}
+.leftside {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 50rem;
+}
+.title {
+  padding-top: 5rem;
+}
+.leftside p {
+  padding: 5rem 10rem;
+  font-size: var(--text);
+  color: var(--gray-text);
+}
+.rightside {
+  background: linear-gradient(#dad8dd, #dad1d4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 40rem;
+  position: relative;
+}
+
+.rightside .cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------- */
+
+@keyframes enter {
+  from {
+    transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+  }
+  to {
+    transform: translateY(0%) rotateZ(0deg) rotateX(0deg);
+  }
+}
+@keyframes shaking {
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.plant1 {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: -20%;
+  height: 80%;
+  transform: rotateX(-90deg);
+  /* the plant exists but we cant see it because it is rotated in a way that we can't see it */
+  transform-origin: bottom;
+  animation: enter 1.5s ease-in-out 0.5s,
+    shaking 2.5s infinite ease alternate-reverse 2s;
+}
+.plant2 {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 40%;
+  height: 80%;
+  transform: rotateX(-90deg);
+  /* we want the plant to look like it's waking up XD  */
+  transform-origin: bottom;
+  /* transform-origin bel fallegui kima l balouna elli bech ydour 3liha l element 
+  check this url : https://www.w3schools.com/csSref/trycss3_transform-origin_inuse.htm */
+  animation: enter 1.5s ease-in-out 0.5s forwards,
+    shaking 2.5s infinite ease alternate-reverse 2s;
+  /* we did alternate-reverse because we want the plant to move from that position not the forwards position  */
+  /* we have two animations : for the entering so it is only forwards and for shaking so it is alternate  */
+}
+
+.gallery-btn {
+  margin-bottom: 3rem;
+}
+.gallery-btn a {
+  padding: 2rem 8rem;
+  border: solid 3px black;
+}
+
+/* -------------------------------------------------------------------- */
+
+/* -------------------------------------- about --------------------- */
+.about {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-leftside {
+  flex: 1 40rem;
+  position: relative;
+}
+.about-leftside h1 {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  letter-spacing: 2rem;
+}
+.about-leftside img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.about-rightside {
+  flex: 2 0 40rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: var(--background-color);
+  color: white;
+}
+.about-rightside h1 {
+  align-self: center;
+  padding: 4rem;
+  font-family: "Vibes";
+  font-size: var(--header2);
+}
+.info1,
+.info2,
+.info3 {
+  padding: 3rem 8rem;
+}
+.info1 h3,
+.info2 h3,
+.info3 h3 {
+  padding: 2rem 0;
+}
+/* ------------------------------------------------------------------ */
+/* -------------------------------gallery---------------------------- */
+.gallery {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.img1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: span 2; /* or grid-column : 1/3 */
+}
+.img2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 3/4;
+  grid-row: 1/3;
+}
+.img3 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img4 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------------------ */
+
+/* --------------------------------- contact ---------------------------- */
+.contact {
+  min-height: 100vh;
+  display: flex;
+}
+.form {
+  flex: 1 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form h1 {
+  font-size: 5rem;
+  padding: 6rem;
+}
+.form span {
+  font-size: 7rem;
+  color: var(--special-color);
+}
+.image {
+  flex: 1 40rem;
+}
+.email input {
+  margin: 2rem 0;
+  background-color: #414141;
+  color: white;
+  padding: 1rem;
+  border: none;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contact .submit {
+  text-align: center;
+  background-color: var(--special-color);
+  border: none;
+  width: 100%;
+  color: white;
+  padding: 1rem 0;
+  transition: ease 0.5s all;
+}
+.contact .submit:hover {
+  cursor: pointer;
+  background-color: #a74969;
+}
+.contact input:focus {
+  outline: rgb(126, 33, 33) 2px solid;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------- */
+
+/* --------------------footer----------------------------- */
+
+footer {
+  padding: 0 5rem;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+footer .logo {
+  padding: 2rem 0;
+  flex: 1 40rem;
+  color: white;
+}
+footer .logo h1 {
+  font-size: 3rem;
+  font-family: "Ruhl", sans-serif;
+}
+footer .social-media {
+  flex: 1 40rem;
+  padding: 2rem 0;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+/* ------------------------------------------------------ */
+
+/* ------------- media query---------- */
+
+@media screen and (max-width: 965px) {
+  .home {
+    width: 100%;
+    margin: 0;
+  }
+
+  .home .leftside p {
+    padding: 5rem 5rem;
+  }
+  .gallery-btn {
+    margin-bottom: 6rem;
+  }
+  .info1,
+  .info2,
+  .info3 {
+    padding: 3rem;
+  }
+}
+@media screen and (max-width: 915px) {
+  footer .logo {
+    order: 1;
+  }
+  .social-media {
+    padding-bottom: 0;
+  }
+  .image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 842px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .img1 {
+    grid-column: span 2;
+    grid-row: 1/3;
+  }
+  .img2 {
+    grid-column: span 2;
+    grid-row: 3/5;
+  }
+  .img3 {
+    grid-column: 1/3;
+    grid-row: 1/3;
+  }
+  .img4 {
+    grid-column: 3/5;
+    grid-row: 3/5;
+  }
+  header .logo {
+    text-align: start;
+  }
+
+  .openlinks {
+    display: block;
+  }
+  /* ---- classes to toggle ---  */
+  .links {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #414141;
+    transition: ease-in-out all 1s;
+  }
+  header .links a {
+    color: white;
+    text-decoration: underline;
+    font-size: 3.5rem;
+  }
+  .slide {
+    transform: translateX(-100%);
+  }
+
+  /* ---------- */
+}
+
+@media screen and (max-width: 617px) {
+  .gallery {
+    display: flex;
+    flex-direction: column;
+  }
+}
